@@ -34,8 +34,6 @@ class SVGElementParser {
             EllipticalArc]
     }
     
-    static let kPathCommands = NSCharacterSet(charactersInString: "")
-    
     //MARK: Public methods
     
     // Path
@@ -108,20 +106,20 @@ class SVGElementParser {
         }
     }
     
-    private class func pathFromPathBuilderResult(pathBuilderResult: (CGPathRef, VectorPathInfo), xmlReader: xmlTextReaderPtr) -> VectorPath {
+    private class func pathFromPathBuilderResult(pathBuilderResult: (path: CGPathRef, pathInfo: VectorPathInfo), xmlReader: xmlTextReaderPtr) -> VectorPath {
         let attributes = parsedElementAttributesWithXMLReader(xmlReader)
-        let vectorPath = VectorPath(path: pathBuilderResult.0, pathInfo: pathBuilderResult.1, attributes: attributes)
+        let vectorPath = VectorPath(path: pathBuilderResult.path, pathInfo: pathBuilderResult.pathInfo, attributes: attributes)
         
         return vectorPath
     }
     
-    private class func builtPathFromPathData(pathData: String) -> (CGPathRef, VectorPathInfo)? {
+    private class func builtPathFromPathData(pathData: String) -> (path: CGPathRef, pathInfo: VectorPathInfo)? {
         let scanner = pathScannerWithPathData(pathData)
         var scannedCommand : NSString?
         let pathBuilder = SVGPathBuilder()
         var builtPath : (CGPathRef, VectorPathInfo)? = nil
         
-        while scanner.scanCharactersFromSet(kPathCommands, intoString: &scannedCommand) {
+        while scanner.scanCharactersFromSet(pathCommandsCharacterSet(), intoString: &scannedCommand) {
             if let scannedCommand = scannedCommand {
                 if scannedCommand.length == 1 {
                     let scannedValues = scannedValuesForScanner(scanner)
@@ -170,14 +168,14 @@ class SVGElementParser {
     private class func pathScannerWithPathData(pathData: String) -> NSScanner {
         let scanner = NSScanner(string: pathData)
         let baseCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-        let skipCharacterSet = pathScannerSkipCharacterSet()
+        let skipCharacterSet = NSMutableCharacterSet(charactersInString: ",")
         skipCharacterSet.formUnionWithCharacterSet(baseCharacterSet)
         scanner.charactersToBeSkipped = skipCharacterSet
         
         return scanner
     }
     
-    private class func pathScannerSkipCharacterSet() -> NSMutableCharacterSet {
+    private class func pathCommandsCharacterSet() -> NSMutableCharacterSet {
         var characters = ""
         for character in PathCommand.allValues {
             characters += (character.rawValue + character.rawValue.uppercaseString)
