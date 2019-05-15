@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A67BB701CB3F50C005AE2A0 /* Transvector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A67BB6F1CB3F50C005AE2A0 /* Transvector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A67BB771CB3F50C005AE2A0 /* Transvector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A67BB6C1CB3F50C005AE2A0 /* Transvector.framework */; };
 		0A67BB7C1CB3F50C005AE2A0 /* TransvectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BB7B1CB3F50C005AE2A0 /* TransvectorTests.swift */; };
 		0A67BB8C1CB44CF9005AE2A0 /* SVGParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BB8B1CB44CF9005AE2A0 /* SVGParser.swift */; };
@@ -34,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		0A67BB6C1CB3F50C005AE2A0 /* Transvector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Transvector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A67BB6F1CB3F50C005AE2A0 /* Transvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transvector.h; sourceTree = "<group>"; };
 		0A67BB711CB3F50C005AE2A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A67BB761CB3F50C005AE2A0 /* TransvectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransvectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A67BB7B1CB3F50C005AE2A0 /* TransvectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransvectorTests.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 		0A67BB6E1CB3F50C005AE2A0 /* Transvector */ = {
 			isa = PBXGroup;
 			children = (
-				0A67BB6F1CB3F50C005AE2A0 /* Transvector.h */,
 				0A67BB711CB3F50C005AE2A0 /* Info.plist */,
 			);
 			path = Transvector;
@@ -169,7 +166,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A67BB701CB3F50C005AE2A0 /* Transvector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +425,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.Transvector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2 ${SRCROOT}/internalModule";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -453,7 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.Transvector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = "$(SDKROOT)/usr/include/libxml2 ${SRCROOT}/internalModule";
+				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 			};

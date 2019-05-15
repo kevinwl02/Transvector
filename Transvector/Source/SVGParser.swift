@@ -8,7 +8,11 @@
 
 import Foundation
 
-class SVGParser: NSObject {
+/**
+ SVG parser into computable / renderable vector data.
+ Supports only Vector strokes. (e.g. no fill, masks, etc.)
+ */
+public class SVGStrokeParser: NSObject {
     //MARK: Constants
     let kSVGExtension = "svg"
     
@@ -16,12 +20,28 @@ class SVGParser: NSObject {
     var groupAttributes: [String:String] = [String:String]()
     var graphic = VectorGraphic()
     var completion: ((VectorGraphic?) -> Void)?
+    var stackedGroupAttributes = [[String: String]]()
     
     //MARK: Public methods
     
-    func parseFileWithName(filename: String, completion: @escaping (VectorGraphic?) -> Void) {
-        let filePath = Bundle(for: type(of: self)).url(forResource: filename, withExtension: kSVGExtension)
-        
+    /**
+     Returns a vector view from a SVG file. The vector view
+     contains renderable SVG data.
+     */
+    public func vectorView(filename: String, completion: @escaping (VectorView?) -> Void) {
+        resetState()
+        vectorGraphic(filename: filename) { graphic in
+            completion(graphic?.vectorView())
+        }
+    }
+    
+    /**
+     Returns a vector graphic from a SVG file. A vector graphic
+     contains the data representation of the SVG data.
+     */
+    public func vectorGraphic(filename: String, completion: @escaping (VectorGraphic?) -> Void) {
+        resetState()
+        let filePath = Bundle.main.url(forResource: filename, withExtension: kSVGExtension)
         if let filePath = filePath {
             self.completion = completion
             let reader = XMLParser(contentsOf: filePath)
@@ -30,6 +50,12 @@ class SVGParser: NSObject {
         } else {
             completion(nil)
         }
+    }
+    
+    public func resetState() {
+        graphic = VectorGraphic()
+        completion = nil
+        stackedGroupAttributes = [[:]]
     }
     
     //MARK: Private methods
@@ -50,20 +76,20 @@ class SVGParser: NSObject {
     }
 }
 
-extension SVGParser: XMLParserDelegate {
-    func parserDidStartDocument(_ parser: XMLParser) {
+extension SVGStrokeParser: XMLParserDelegate {
+    public func parserDidStartDocument(_ parser: XMLParser) {
         groupAttributes = [:]
         graphic = VectorGraphic()
     }
     
-    func parserDidEndDocument(_ parser: XMLParser) {
+    public func parserDidEndDocument(_ parser: XMLParser) {
         completion?(graphic)
         completion = nil
     }
     
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         if elementName == SVGElementParser.kElementTypeGroup {
-            groupAttributes = attributeDict
+            addGroupAttributes(attributes: attributeDict)
         } else {
             if var parsedElement = parsedElement(elementName: elementName, attributes: attributeDict) {
                 parsedElement.attributes = attributeDict
@@ -72,9 +98,25 @@ extension SVGParser: XMLParserDelegate {
             }
         }
     }
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == SVGElementParser.kElementTypeGroup {
-            groupAttributes = [:]
+            removeLastGroupAttributes()
+        }
+    }
+    private func addGroupAttributes(attributes: [String: String]) {
+        stackedGroupAttributes.append(attributes)
+        recalculateGroupAttributes()
+    }
+    private func removeLastGroupAttributes() {
+        if stackedGroupAttributes.count == 0 { return }
+        
+        stackedGroupAttributes.removeLast()
+        recalculateGroupAttributes()
+    }
+    private func recalculateGroupAttributes() {
+        groupAttributes = [:]
+        for attributes in stackedGroupAttributes {
+            groupAttributes.merge(attributes, uniquingKeysWith: { (_, new) in new })
         }
     }
 }

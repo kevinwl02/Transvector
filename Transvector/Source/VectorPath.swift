@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kevin Wong. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum VectorStrokeAttribute: String {
     case strokeWidth = "stroke-width"

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import libxml2
+import UIKit
 
 class SVGElementParser {
     static let kElementTypeGroup = "g"
@@ -163,6 +163,10 @@ class SVGElementParser {
                     }
                 }
             }
+        }
+        
+        if builtPath == nil {
+            builtPath = pathBuilder.closePath()
         }
         
         return builtPath

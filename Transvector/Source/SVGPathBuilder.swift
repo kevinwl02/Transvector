@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kevin Wong. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct ReflectedLastControlPoint {
     enum CurveType {
@@ -19,10 +19,15 @@ struct ReflectedLastControlPoint {
 
 class SVGPathBuilder {
     private let path = CGMutablePath()
+    var closedPath: Bool = true
+    var startPoint: CGPoint?
     private var reflectedLastControlPoint: ReflectedLastControlPoint?
     
     @discardableResult
     func moveToPoint(values: [Double], relative: Bool) -> SVGPathBuilder {
+        if startPoint != nil {
+            closedPath = false
+        }
         reflectedLastControlPoint = nil
         iteratePoints(values: values, relative: relative) { point in
             path.move(to: point)
@@ -32,6 +37,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addLineToPoint(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         iteratePoints(values: values, relative: relative) { point in
             path.addLine(to: point)
@@ -41,6 +47,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addHorizontaLine(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         for value in values {
             path.addLine(to: relativeHorizontalPoint(x: value, relative: relative))
@@ -50,6 +57,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addVerticalLine(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         for value in values {
             path.addLine(to: relativeVerticalPoint(y: value, relative: relative))
@@ -59,6 +67,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addCubicCurve(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         for first in stride(from: 0, to: values.count, by: 6) {
             if values.count <= first + 5 {
@@ -79,6 +88,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addCubicSmoothCurve(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         for first in stride(from: 0, to: values.count, by: 4) {
             if values.count <= first + 3 {
@@ -101,6 +111,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addQuadraticCurve(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         for first in stride(from: 0, to: values.count, by: 4) {
             if values.count <= first + 3 {
@@ -119,6 +130,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addQuadraticSmoothCurve(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         iteratePoints(values: values, relative: relative) { point in
             let control1 = (reflectedLastControlPoint != nil && reflectedLastControlPoint?.type == .quad) ? CGPoint(x: reflectedLastControlPoint!.point.x, y: reflectedLastControlPoint!.point.y) : point
@@ -130,6 +142,7 @@ class SVGPathBuilder {
     
     @discardableResult
     func addEllipticalArc(values: [Double], relative: Bool) -> SVGPathBuilder {
+        setStartPoint()
         reflectedLastControlPoint = nil
         return self
     }
@@ -137,39 +150,38 @@ class SVGPathBuilder {
     @discardableResult
     func addEllipse(centerX: Float, centerY: Float, radiusX: Float, radiusY: Float) -> SVGPathBuilder {
         reflectedLastControlPoint = nil
-        let rect = CGRect(x: CGFloat(centerX - radiusX), y: CGFloat(centerY - radiusY), width: CGFloat(radiusX), height: CGFloat(radiusY))
-        path.addRoundedRect(in: rect, cornerWidth: CGFloat(radiusX), cornerHeight: CGFloat(radiusY))
+        let rect = CGRect(x: CGFloat(centerX - radiusX), y: CGFloat(centerY - radiusY), width: CGFloat(radiusX * 2), height: CGFloat(radiusY * 2))
+        path.addEllipse(in: rect)
         
         return self
     }
     
     func closePath() -> (CGPath, VectorPathInfo) {
-        
-        let firstPoint = CGPoint(x: 0, y: 0);
-        let lastPoint = CGPoint(x: 0, y: 0);
-        let outDirection: Float = 0.0
-        let inDirection: Float = 0.0
-        
-        let pathInfo = VectorPathInfo(firstPoint: firstPoint, lastPoint: lastPoint, outDirection: outDirection, inDirection: inDirection)
+        if let startPoint = startPoint, closedPath, startPoint == path.currentPoint {
+            path.closeSubpath()
+        }
+        let pathInfo = VectorPathInfo(firstPoint: startPoint, lastPoint: path.currentPoint)
         
         return (path, pathInfo)
     }
     
-    func relativePoint(x: Double, y: Double, relative: Bool) -> CGPoint {
+    // MARK: - Private methods
+    
+    private func relativePoint(x: Double, y: Double, relative: Bool) -> CGPoint {
         if relative {
             return CGPoint(x: Double(path.currentPoint.x) + x, y: Double(path.currentPoint.y) + y)
         } else {
             return CGPoint(x: x, y: y)
         }
     }
-    func relativeHorizontalPoint(x: Double, relative: Bool) -> CGPoint {
+    private func relativeHorizontalPoint(x: Double, relative: Bool) -> CGPoint {
         if relative {
             return CGPoint(x: Double(path.currentPoint.x) + x, y: Double(path.currentPoint.y))
         } else {
             return CGPoint(x: x, y: Double(path.currentPoint.y))
         }
     }
-    func relativeVerticalPoint(y: Double, relative: Bool) -> CGPoint {
+    private func relativeVerticalPoint(y: Double, relative: Bool) -> CGPoint {
         if relative {
             return CGPoint(x: Double(path.currentPoint.x), y: Double(path.currentPoint.y) + y)
         } else {
@@ -177,7 +189,7 @@ class SVGPathBuilder {
         }
     }
     
-    func iteratePoints(values: [Double], relative: Bool, output: (CGPoint) -> Void) {
+    private func iteratePoints(values: [Double], relative: Bool, output: (CGPoint) -> Void) {
         for valueX in stride(from: 0, to: values.count, by: 2) {
             if values.count <= valueX + 1 {
                 break
@@ -188,7 +200,7 @@ class SVGPathBuilder {
         }
     }
     
-    func setLastControlPoint(_ point: CGPoint, relative: Bool, type: ReflectedLastControlPoint.CurveType) {
+    private func setLastControlPoint(_ point: CGPoint, relative: Bool, type: ReflectedLastControlPoint.CurveType) {
         let currentPoint = path.currentPoint
         if relative {
             reflectedLastControlPoint = ReflectedLastControlPoint(point: CGPoint(x: currentPoint.x - point.x, y: currentPoint.y - point.y), type: type)
@@ -196,6 +208,12 @@ class SVGPathBuilder {
             let diffX = point.x - currentPoint.x
             let diffY = point.y - currentPoint.y
             reflectedLastControlPoint = ReflectedLastControlPoint(point: CGPoint(x: currentPoint.x - diffX, y: currentPoint.y - diffY), type: type)
+        }
+    }
+    
+    private func setStartPoint() {
+        if startPoint == nil {
+            startPoint = path.currentPoint
         }
     }
 }
