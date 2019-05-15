@@ -3,73 +3,68 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A6801D51CB548DD0071281D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6801D41CB548DD0071281D /* AppDelegate.swift */; };
-		0A6801D71CB548DD0071281D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6801D61CB548DD0071281D /* ViewController.swift */; };
-		0A6801DA1CB548DD0071281D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6801D81CB548DD0071281D /* Main.storyboard */; };
-		0A6801DC1CB548DD0071281D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A6801DB1CB548DD0071281D /* Assets.xcassets */; };
-		0A6801DF1CB548DD0071281D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6801DD1CB548DD0071281D /* LaunchScreen.storyboard */; };
-		0A6801EA1CB548DE0071281D /* TransvectorExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6801E91CB548DE0071281D /* TransvectorExampleTests.swift */; };
-		0A6801F51CB548DE0071281D /* TransvectorExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6801F41CB548DE0071281D /* TransvectorExampleUITests.swift */; };
-		D87B1EB064D1A065F971ED32 /* Pods_TransvectorExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B970EE2B066946D6B8A55B0C /* Pods_TransvectorExample.framework */; };
+		2C7BF6C3228A6C00007C872E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BF6C2228A6C00007C872E /* AppDelegate.swift */; };
+		2C7BF6C5228A6C00007C872E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BF6C4228A6C00007C872E /* ViewController.swift */; };
+		2C7BF6C8228A6C00007C872E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7BF6C6228A6C00007C872E /* Main.storyboard */; };
+		2C7BF6CA228A6C02007C872E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C7BF6C9228A6C02007C872E /* Assets.xcassets */; };
+		2C7BF6CD228A6C02007C872E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7BF6CB228A6C02007C872E /* LaunchScreen.storyboard */; };
+		2C7BF6D8228A6C02007C872E /* TransvectorExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BF6D7228A6C02007C872E /* TransvectorExampleTests.swift */; };
+		2C7BF6E3228A6C02007C872E /* TransvectorExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BF6E2228A6C02007C872E /* TransvectorExampleUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0A6801E61CB548DE0071281D /* PBXContainerItemProxy */ = {
+		2C7BF6D4228A6C02007C872E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A6801C91CB548DD0071281D /* Project object */;
+			containerPortal = 2C7BF6B7228A6C00007C872E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0A6801D01CB548DD0071281D;
+			remoteGlobalIDString = 2C7BF6BE228A6C00007C872E;
 			remoteInfo = TransvectorExample;
 		};
-		0A6801F11CB548DE0071281D /* PBXContainerItemProxy */ = {
+		2C7BF6DF228A6C02007C872E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0A6801C91CB548DD0071281D /* Project object */;
+			containerPortal = 2C7BF6B7228A6C00007C872E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0A6801D01CB548DD0071281D;
+			remoteGlobalIDString = 2C7BF6BE228A6C00007C872E;
 			remoteInfo = TransvectorExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03E9363AEB1CE8D52087A579 /* Pods-TransvectorExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransvectorExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransvectorExample/Pods-TransvectorExample.release.xcconfig"; sourceTree = "<group>"; };
-		0A6801D11CB548DD0071281D /* TransvectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransvectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A6801D41CB548DD0071281D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A6801D61CB548DD0071281D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0A6801D91CB548DD0071281D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A6801DB1CB548DD0071281D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A6801DE1CB548DD0071281D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0A6801E01CB548DD0071281D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A6801E51CB548DE0071281D /* TransvectorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransvectorExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A6801E91CB548DE0071281D /* TransvectorExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransvectorExampleTests.swift; sourceTree = "<group>"; };
-		0A6801EB1CB548DE0071281D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A6801F01CB548DE0071281D /* TransvectorExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransvectorExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A6801F41CB548DE0071281D /* TransvectorExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransvectorExampleUITests.swift; sourceTree = "<group>"; };
-		0A6801F61CB548DE0071281D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C243EAD477D0BF2C537F0FF /* Pods-TransvectorExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransvectorExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransvectorExample/Pods-TransvectorExample.debug.xcconfig"; sourceTree = "<group>"; };
-		B970EE2B066946D6B8A55B0C /* Pods_TransvectorExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransvectorExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C7BF6BF228A6C00007C872E /* TransvectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransvectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C7BF6C2228A6C00007C872E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C7BF6C4228A6C00007C872E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C7BF6C7228A6C00007C872E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C7BF6C9228A6C02007C872E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C7BF6CC228A6C02007C872E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C7BF6CE228A6C02007C872E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C7BF6D3228A6C02007C872E /* TransvectorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransvectorExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C7BF6D7228A6C02007C872E /* TransvectorExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransvectorExampleTests.swift; sourceTree = "<group>"; };
+		2C7BF6D9228A6C02007C872E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C7BF6DE228A6C02007C872E /* TransvectorExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransvectorExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C7BF6E2228A6C02007C872E /* TransvectorExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransvectorExampleUITests.swift; sourceTree = "<group>"; };
+		2C7BF6E4228A6C02007C872E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A6801CE1CB548DD0071281D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D87B1EB064D1A065F971ED32 /* Pods_TransvectorExample.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0A6801E21CB548DE0071281D /* Frameworks */ = {
+		2C7BF6BC228A6C00007C872E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A6801ED1CB548DE0071281D /* Frameworks */ = {
+		2C7BF6D0228A6C02007C872E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C7BF6DB228A6C02007C872E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,89 +74,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A6801C81CB548DD0071281D = {
+		2C7BF6B6228A6C00007C872E = {
 			isa = PBXGroup;
 			children = (
-				0A6801D31CB548DD0071281D /* TransvectorExample */,
-				0A6801E81CB548DE0071281D /* TransvectorExampleTests */,
-				0A6801F31CB548DE0071281D /* TransvectorExampleUITests */,
-				0A6801D21CB548DD0071281D /* Products */,
-				BF2BD12A971B14F54209F6B5 /* Pods */,
-				49E9CC3FB9C3B779943D57AB /* Frameworks */,
+				2C7BF6C1228A6C00007C872E /* TransvectorExample */,
+				2C7BF6D6228A6C02007C872E /* TransvectorExampleTests */,
+				2C7BF6E1228A6C02007C872E /* TransvectorExampleUITests */,
+				2C7BF6C0228A6C00007C872E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A6801D21CB548DD0071281D /* Products */ = {
+		2C7BF6C0228A6C00007C872E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A6801D11CB548DD0071281D /* TransvectorExample.app */,
-				0A6801E51CB548DE0071281D /* TransvectorExampleTests.xctest */,
-				0A6801F01CB548DE0071281D /* TransvectorExampleUITests.xctest */,
+				2C7BF6BF228A6C00007C872E /* TransvectorExample.app */,
+				2C7BF6D3228A6C02007C872E /* TransvectorExampleTests.xctest */,
+				2C7BF6DE228A6C02007C872E /* TransvectorExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A6801D31CB548DD0071281D /* TransvectorExample */ = {
+		2C7BF6C1228A6C00007C872E /* TransvectorExample */ = {
 			isa = PBXGroup;
 			children = (
-				0A6801D41CB548DD0071281D /* AppDelegate.swift */,
-				0A6801D61CB548DD0071281D /* ViewController.swift */,
-				0A6801D81CB548DD0071281D /* Main.storyboard */,
-				0A6801DB1CB548DD0071281D /* Assets.xcassets */,
-				0A6801DD1CB548DD0071281D /* LaunchScreen.storyboard */,
-				0A6801E01CB548DD0071281D /* Info.plist */,
+				2C7BF6C2228A6C00007C872E /* AppDelegate.swift */,
+				2C7BF6C4228A6C00007C872E /* ViewController.swift */,
+				2C7BF6C6228A6C00007C872E /* Main.storyboard */,
+				2C7BF6C9228A6C02007C872E /* Assets.xcassets */,
+				2C7BF6CB228A6C02007C872E /* LaunchScreen.storyboard */,
+				2C7BF6CE228A6C02007C872E /* Info.plist */,
 			);
 			path = TransvectorExample;
 			sourceTree = "<group>";
 		};
-		0A6801E81CB548DE0071281D /* TransvectorExampleTests */ = {
+		2C7BF6D6228A6C02007C872E /* TransvectorExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A6801E91CB548DE0071281D /* TransvectorExampleTests.swift */,
-				0A6801EB1CB548DE0071281D /* Info.plist */,
+				2C7BF6D7228A6C02007C872E /* TransvectorExampleTests.swift */,
+				2C7BF6D9228A6C02007C872E /* Info.plist */,
 			);
 			path = TransvectorExampleTests;
 			sourceTree = "<group>";
 		};
-		0A6801F31CB548DE0071281D /* TransvectorExampleUITests */ = {
+		2C7BF6E1228A6C02007C872E /* TransvectorExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0A6801F41CB548DE0071281D /* TransvectorExampleUITests.swift */,
-				0A6801F61CB548DE0071281D /* Info.plist */,
+				2C7BF6E2228A6C02007C872E /* TransvectorExampleUITests.swift */,
+				2C7BF6E4228A6C02007C872E /* Info.plist */,
 			);
 			path = TransvectorExampleUITests;
-			sourceTree = "<group>";
-		};
-		49E9CC3FB9C3B779943D57AB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B970EE2B066946D6B8A55B0C /* Pods_TransvectorExample.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BF2BD12A971B14F54209F6B5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9C243EAD477D0BF2C537F0FF /* Pods-TransvectorExample.debug.xcconfig */,
-				03E9363AEB1CE8D52087A579 /* Pods-TransvectorExample.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A6801D01CB548DD0071281D /* TransvectorExample */ = {
+		2C7BF6BE228A6C00007C872E /* TransvectorExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A6801F91CB548DE0071281D /* Build configuration list for PBXNativeTarget "TransvectorExample" */;
+			buildConfigurationList = 2C7BF6E7228A6C02007C872E /* Build configuration list for PBXNativeTarget "TransvectorExample" */;
 			buildPhases = (
-				BBB93FBD1A8E1AD0F14C551F /* Check Pods Manifest.lock */,
-				0A6801CD1CB548DD0071281D /* Sources */,
-				0A6801CE1CB548DD0071281D /* Frameworks */,
-				0A6801CF1CB548DD0071281D /* Resources */,
-				C387018E19E2932E7E899B3E /* Embed Pods Frameworks */,
-				71430FBEADC9846B1AC1693B /* Copy Pods Resources */,
+				2C7BF6BB228A6C00007C872E /* Sources */,
+				2C7BF6BC228A6C00007C872E /* Frameworks */,
+				2C7BF6BD228A6C00007C872E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -169,106 +142,107 @@
 			);
 			name = TransvectorExample;
 			productName = TransvectorExample;
-			productReference = 0A6801D11CB548DD0071281D /* TransvectorExample.app */;
+			productReference = 2C7BF6BF228A6C00007C872E /* TransvectorExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0A6801E41CB548DE0071281D /* TransvectorExampleTests */ = {
+		2C7BF6D2228A6C02007C872E /* TransvectorExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A6801FC1CB548DE0071281D /* Build configuration list for PBXNativeTarget "TransvectorExampleTests" */;
+			buildConfigurationList = 2C7BF6EA228A6C02007C872E /* Build configuration list for PBXNativeTarget "TransvectorExampleTests" */;
 			buildPhases = (
-				0A6801E11CB548DE0071281D /* Sources */,
-				0A6801E21CB548DE0071281D /* Frameworks */,
-				0A6801E31CB548DE0071281D /* Resources */,
+				2C7BF6CF228A6C02007C872E /* Sources */,
+				2C7BF6D0228A6C02007C872E /* Frameworks */,
+				2C7BF6D1228A6C02007C872E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0A6801E71CB548DE0071281D /* PBXTargetDependency */,
+				2C7BF6D5228A6C02007C872E /* PBXTargetDependency */,
 			);
 			name = TransvectorExampleTests;
 			productName = TransvectorExampleTests;
-			productReference = 0A6801E51CB548DE0071281D /* TransvectorExampleTests.xctest */;
+			productReference = 2C7BF6D3228A6C02007C872E /* TransvectorExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0A6801EF1CB548DE0071281D /* TransvectorExampleUITests */ = {
+		2C7BF6DD228A6C02007C872E /* TransvectorExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A6801FF1CB548DE0071281D /* Build configuration list for PBXNativeTarget "TransvectorExampleUITests" */;
+			buildConfigurationList = 2C7BF6ED228A6C02007C872E /* Build configuration list for PBXNativeTarget "TransvectorExampleUITests" */;
 			buildPhases = (
-				0A6801EC1CB548DE0071281D /* Sources */,
-				0A6801ED1CB548DE0071281D /* Frameworks */,
-				0A6801EE1CB548DE0071281D /* Resources */,
+				2C7BF6DA228A6C02007C872E /* Sources */,
+				2C7BF6DB228A6C02007C872E /* Frameworks */,
+				2C7BF6DC228A6C02007C872E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0A6801F21CB548DE0071281D /* PBXTargetDependency */,
+				2C7BF6E0228A6C02007C872E /* PBXTargetDependency */,
 			);
 			name = TransvectorExampleUITests;
 			productName = TransvectorExampleUITests;
-			productReference = 0A6801F01CB548DE0071281D /* TransvectorExampleUITests.xctest */;
+			productReference = 2C7BF6DE228A6C02007C872E /* TransvectorExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A6801C91CB548DD0071281D /* Project object */ = {
+		2C7BF6B7228A6C00007C872E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Kevin Wong";
 				TargetAttributes = {
-					0A6801D01CB548DD0071281D = {
-						CreatedOnToolsVersion = 7.0.1;
+					2C7BF6BE228A6C00007C872E = {
+						CreatedOnToolsVersion = 10.1;
 					};
-					0A6801E41CB548DE0071281D = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 0A6801D01CB548DD0071281D;
+					2C7BF6D2228A6C02007C872E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 2C7BF6BE228A6C00007C872E;
 					};
-					0A6801EF1CB548DE0071281D = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = 0A6801D01CB548DD0071281D;
+					2C7BF6DD228A6C02007C872E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 2C7BF6BE228A6C00007C872E;
 					};
 				};
 			};
-			buildConfigurationList = 0A6801CC1CB548DD0071281D /* Build configuration list for PBXProject "TransvectorExample" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 2C7BF6BA228A6C00007C872E /* Build configuration list for PBXProject "TransvectorExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 0A6801C81CB548DD0071281D;
-			productRefGroup = 0A6801D21CB548DD0071281D /* Products */;
+			mainGroup = 2C7BF6B6228A6C00007C872E;
+			productRefGroup = 2C7BF6C0228A6C00007C872E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A6801D01CB548DD0071281D /* TransvectorExample */,
-				0A6801E41CB548DE0071281D /* TransvectorExampleTests */,
-				0A6801EF1CB548DE0071281D /* TransvectorExampleUITests */,
+				2C7BF6BE228A6C00007C872E /* TransvectorExample */,
+				2C7BF6D2228A6C02007C872E /* TransvectorExampleTests */,
+				2C7BF6DD228A6C02007C872E /* TransvectorExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A6801CF1CB548DD0071281D /* Resources */ = {
+		2C7BF6BD228A6C00007C872E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6801DF1CB548DD0071281D /* LaunchScreen.storyboard in Resources */,
-				0A6801DC1CB548DD0071281D /* Assets.xcassets in Resources */,
-				0A6801DA1CB548DD0071281D /* Main.storyboard in Resources */,
+				2C7BF6CD228A6C02007C872E /* LaunchScreen.storyboard in Resources */,
+				2C7BF6CA228A6C02007C872E /* Assets.xcassets in Resources */,
+				2C7BF6C8228A6C00007C872E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A6801E31CB548DE0071281D /* Resources */ = {
+		2C7BF6D1228A6C02007C872E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A6801EE1CB548DE0071281D /* Resources */ = {
+		2C7BF6DC228A6C02007C872E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,108 +251,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		71430FBEADC9846B1AC1693B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransvectorExample/Pods-TransvectorExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBB93FBD1A8E1AD0F14C551F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C387018E19E2932E7E899B3E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransvectorExample/Pods-TransvectorExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		0A6801CD1CB548DD0071281D /* Sources */ = {
+		2C7BF6BB228A6C00007C872E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6801D71CB548DD0071281D /* ViewController.swift in Sources */,
-				0A6801D51CB548DD0071281D /* AppDelegate.swift in Sources */,
+				2C7BF6C5228A6C00007C872E /* ViewController.swift in Sources */,
+				2C7BF6C3228A6C00007C872E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A6801E11CB548DE0071281D /* Sources */ = {
+		2C7BF6CF228A6C02007C872E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6801EA1CB548DE0071281D /* TransvectorExampleTests.swift in Sources */,
+				2C7BF6D8228A6C02007C872E /* TransvectorExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0A6801EC1CB548DE0071281D /* Sources */ = {
+		2C7BF6DA228A6C02007C872E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6801F51CB548DE0071281D /* TransvectorExampleUITests.swift in Sources */,
+				2C7BF6E3228A6C02007C872E /* TransvectorExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0A6801E71CB548DE0071281D /* PBXTargetDependency */ = {
+		2C7BF6D5228A6C02007C872E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A6801D01CB548DD0071281D /* TransvectorExample */;
-			targetProxy = 0A6801E61CB548DE0071281D /* PBXContainerItemProxy */;
+			target = 2C7BF6BE228A6C00007C872E /* TransvectorExample */;
+			targetProxy = 2C7BF6D4228A6C02007C872E /* PBXContainerItemProxy */;
 		};
-		0A6801F21CB548DE0071281D /* PBXTargetDependency */ = {
+		2C7BF6E0228A6C02007C872E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A6801D01CB548DD0071281D /* TransvectorExample */;
-			targetProxy = 0A6801F11CB548DE0071281D /* PBXContainerItemProxy */;
+			target = 2C7BF6BE228A6C00007C872E /* TransvectorExample */;
+			targetProxy = 2C7BF6DF228A6C02007C872E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0A6801D81CB548DD0071281D /* Main.storyboard */ = {
+		2C7BF6C6228A6C00007C872E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A6801D91CB548DD0071281D /* Base */,
+				2C7BF6C7228A6C00007C872E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0A6801DD1CB548DD0071281D /* LaunchScreen.storyboard */ = {
+		2C7BF6CB228A6C02007C872E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A6801DE1CB548DD0071281D /* Base */,
+				2C7BF6CC228A6C02007C872E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -386,29 +312,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0A6801F71CB548DE0071281D /* Debug */ = {
+		2C7BF6E5228A6C02007C872E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -422,38 +363,54 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0A6801F81CB548DE0071281D /* Release */ = {
+		2C7BF6E6228A6C02007C872E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -461,126 +418,168 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		0A6801FA1CB548DE0071281D /* Debug */ = {
+		2C7BF6E8228A6C02007C872E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C243EAD477D0BF2C537F0FF /* Pods-TransvectorExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TransvectorExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.TransvectorExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0A6801FB1CB548DE0071281D /* Release */ = {
+		2C7BF6E9228A6C02007C872E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03E9363AEB1CE8D52087A579 /* Pods-TransvectorExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TransvectorExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.TransvectorExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		0A6801FD1CB548DE0071281D /* Debug */ = {
+		2C7BF6EB228A6C02007C872E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TransvectorExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.TransvectorExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransvectorExample.app/TransvectorExample";
 			};
 			name = Debug;
 		};
-		0A6801FE1CB548DE0071281D /* Release */ = {
+		2C7BF6EC228A6C02007C872E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TransvectorExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.TransvectorExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransvectorExample.app/TransvectorExample";
 			};
 			name = Release;
 		};
-		0A6802001CB548DE0071281D /* Debug */ = {
+		2C7BF6EE228A6C02007C872E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TransvectorExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.TransvectorExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TransvectorExample;
-				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
 		};
-		0A6802011CB548DE0071281D /* Release */ = {
+		2C7BF6EF228A6C02007C872E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TransvectorExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevinwl02.TransvectorExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TransvectorExample;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A6801CC1CB548DD0071281D /* Build configuration list for PBXProject "TransvectorExample" */ = {
+		2C7BF6BA228A6C00007C872E /* Build configuration list for PBXProject "TransvectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A6801F71CB548DE0071281D /* Debug */,
-				0A6801F81CB548DE0071281D /* Release */,
+				2C7BF6E5228A6C02007C872E /* Debug */,
+				2C7BF6E6228A6C02007C872E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A6801F91CB548DE0071281D /* Build configuration list for PBXNativeTarget "TransvectorExample" */ = {
+		2C7BF6E7228A6C02007C872E /* Build configuration list for PBXNativeTarget "TransvectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A6801FA1CB548DE0071281D /* Debug */,
-				0A6801FB1CB548DE0071281D /* Release */,
+				2C7BF6E8228A6C02007C872E /* Debug */,
+				2C7BF6E9228A6C02007C872E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A6801FC1CB548DE0071281D /* Build configuration list for PBXNativeTarget "TransvectorExampleTests" */ = {
+		2C7BF6EA228A6C02007C872E /* Build configuration list for PBXNativeTarget "TransvectorExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A6801FD1CB548DE0071281D /* Debug */,
-				0A6801FE1CB548DE0071281D /* Release */,
+				2C7BF6EB228A6C02007C872E /* Debug */,
+				2C7BF6EC228A6C02007C872E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A6801FF1CB548DE0071281D /* Build configuration list for PBXNativeTarget "TransvectorExampleUITests" */ = {
+		2C7BF6ED228A6C02007C872E /* Build configuration list for PBXNativeTarget "TransvectorExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A6802001CB548DE0071281D /* Debug */,
-				0A6802011CB548DE0071281D /* Release */,
+				2C7BF6EE228A6C02007C872E /* Debug */,
+				2C7BF6EF228A6C02007C872E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A6801C91CB548DD0071281D /* Project object */;
+	rootObject = 2C7BF6B7228A6C00007C872E /* Project object */;
 }

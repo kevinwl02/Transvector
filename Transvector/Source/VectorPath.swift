@@ -8,14 +8,17 @@
 
 import Foundation
 
-class VectorPath {
-    var path: CGPathRef
+enum VectorStrokeAttribute: String {
+    case strokeWidth = "stroke-width"
+    /**
+     Returns a HEX format color e.g. #FFFFFF
+     */
+    case strokeColor = "stroke"
+    case strokeOpacity = "stroke-opacity"
+}
+
+struct VectorPath {
+    var path: CGPath
     var pathInfo: VectorPathInfo
-    var attributes: [String:String]
-    
-    init (path: CGPathRef, pathInfo: VectorPathInfo, attributes: [String:String]) {
-        self.path = path
-        self.pathInfo = pathInfo
-        self.attributes = attributes
-    }
+    var attributes: [String: String]
 }

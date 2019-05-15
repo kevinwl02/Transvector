@@ -7,88 +7,75 @@
 //
 
 import Foundation
-import libxml2
 
-class SVGParser {
+class SVGParser: NSObject {
     //MARK: Constants
     let kSVGExtension = "svg"
     
     //MARK: Variables
-    private var xmlReader: xmlTextReaderPtr?
+    var groupAttributes: [String:String] = [String:String]()
+    var graphic = VectorGraphic()
+    var completion: ((VectorGraphic?) -> Void)?
     
     //MARK: Public methods
     
-    func parseFileWithName(filename: String) -> VectorGraphic? {
-        let filePath = NSBundle.mainBundle().pathForResource(filename, ofType: kSVGExtension)
+    func parseFileWithName(filename: String, completion: @escaping (VectorGraphic?) -> Void) {
+        let filePath = Bundle(for: type(of: self)).url(forResource: filename, withExtension: kSVGExtension)
         
         if let filePath = filePath {
-            return parseContentString(filePath)
+            self.completion = completion
+            let reader = XMLParser(contentsOf: filePath)
+            reader?.delegate = self
+            reader?.parse()
         } else {
-            return nil
+            completion(nil)
         }
-    }
-    
-    func parseContentString(contentString: String) -> VectorGraphic? {
-        let convertedContentString: NSString = contentString as NSString
-        xmlReader = xmlReaderForDoc(UnsafePointer(convertedContentString.UTF8String), nil, nil, 0)
-        
-        if let xmlReader = xmlReader {
-            var groupAttributes: [String:String] = [String:String]()
-            let graphic = VectorGraphic()
-            
-            while xmlTextReaderRead(xmlReader) == 1 {
-                let nodeType = UInt32(xmlTextReaderNodeType(xmlReader))
-                let elementName = String(xmlTextReaderConstName(xmlReader))
-                if strcasecmp(elementName, SVGElementParser.kElementTypeGroup) == 0 {
-                    if let parsedGroupAttributes = parsedGroupAttributesForNodeType(nodeType) {
-                        groupAttributes = parsedGroupAttributes
-                    }
-                } else if nodeType == XML_READER_TYPE_ELEMENT.rawValue {
-                    if let parsedElement = parsedElementWithName(elementName, nodeType: nodeType) {
-                        parsedElement.attributes +! groupAttributes
-                        graphic.addPath(parsedElement)
-                    }
-                }
-            }
-            
-            xmlFreeTextReader(xmlReader)
-            self.xmlReader = nil
-            
-            return graphic
-        }
-        
-        return nil
     }
     
     //MARK: Private methods
     
-    private func parsedElementWithName(elementName: String, nodeType: UInt32) -> VectorPath? {
-        if nodeType == XML_READER_TYPE_ELEMENT.rawValue {
-            switch elementName {
-            case SVGElementParser.kElementTypePath:
-                return SVGElementParser.parsedPathElementWithXMLReader(xmlReader!)
-            case SVGElementParser.kElementTypeCircle:
-                return SVGElementParser.parsedCircleElementWithXMLReader(xmlReader!)
-            case SVGElementParser.kElementTypeEllipse:
-                return SVGElementParser.parsedEllipseElementWithXMLReader(xmlReader!)
-            case SVGElementParser.kElementTypeRect:
-                return SVGElementParser.parsedPolygonElementWithXMLReader(xmlReader!)
-            default:
-                return nil
-            }
+    private func parsedElement(elementName: String, attributes: [String: String]) -> VectorPath? {
+        switch elementName {
+        case SVGElementParser.kElementTypePath:
+            return SVGElementParser.parsedPathElement(attributes: attributes)
+        case SVGElementParser.kElementTypeCircle:
+            return SVGElementParser.parsedCircleElement(attributes: attributes)
+        case SVGElementParser.kElementTypeEllipse:
+            return SVGElementParser.parsedEllipseElement(attributes: attributes)
+        case SVGElementParser.kElementTypeRect:
+            return SVGElementParser.parsedPolygonElement(attributes: attributes)
+        default:
+            return nil
         }
-        
-        return nil
+    }
+}
+
+extension SVGParser: XMLParserDelegate {
+    func parserDidStartDocument(_ parser: XMLParser) {
+        groupAttributes = [:]
+        graphic = VectorGraphic()
     }
     
-    private func parsedGroupAttributesForNodeType(nodeType: UInt32) -> [String:String]? {
-        if nodeType == XML_READER_TYPE_ELEMENT.rawValue {
-            return SVGElementParser.parsedElementAttributesWithXMLReader(xmlReader!)
-        } else if nodeType == XML_READER_TYPE_END_ELEMENT.rawValue {
-            return [String:String]()
+    func parserDidEndDocument(_ parser: XMLParser) {
+        completion?(graphic)
+        completion = nil
+    }
+    
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        if elementName == SVGElementParser.kElementTypeGroup {
+            groupAttributes = attributeDict
+        } else {
+            if var parsedElement = parsedElement(elementName: elementName, attributes: attributeDict) {
+                parsedElement.attributes = attributeDict
+                parsedElement.attributes +! groupAttributes
+                graphic.addPath(path: parsedElement)
+            }
         }
-        
-        return nil
+    }
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == SVGElementParser.kElementTypeGroup {
+            groupAttributes = [:]
+        }
     }
 }
 
@@ -97,10 +84,9 @@ class SVGParser {
 /**
  * Adds values from the right operand that don't exist in the left operand into the left operand.
  */
-infix operator +! {
-}
+infix operator +!
 
-func +! <KeyType, ValueType> (inout left: [KeyType:ValueType], right: [KeyType:ValueType]) {
+func +! <KeyType, ValueType> ( left: inout [KeyType:ValueType], right: [KeyType:ValueType]) {
     for entry in right {
         if (left[entry.0] == nil) {
             left[entry.0] = entry.1

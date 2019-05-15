@@ -32,120 +32,131 @@ class SVGElementParser {
         static let allValues = [Move, Close, LineTo, HLineTo, VLineTo,
             CubicBezierCurve, CubicBezierSmoothCurve, QuadraticBezierCurve, QuadraticBezierSmoothCurve,
             EllipticalArc]
+        static var pathCommands: String {
+            var path = ""
+            for value in allValues {
+                path += (value.rawValue + value.rawValue.uppercased())
+            }
+            return path
+        }
     }
     
-    static let kPathCommands = NSCharacterSet(charactersInString: "")
-    
-    //MARK: Public methods
+    // MARK: - Public methods
     
     // Path
-    class func parsedPathElementWithXMLReader(xmlReader : xmlTextReaderPtr) -> VectorPath? {
-        let pathData = String(xmlTextReaderGetAttribute(xmlReader, "d"))
+    class func parsedPathElement(attributes: [String: String]) -> VectorPath? {
+        guard let pathData = attributes["d"] else {
+            return nil
+        }
         
-        return pathFromPathData(pathData, xmlReader: xmlReader)
+        return pathFromPathData(pathData)
     }
     
     // Circle
-    class func parsedCircleElementWithXMLReader(xmlReader : xmlTextReaderPtr) -> VectorPath? {
-        let centerX = String(xmlTextReaderGetAttribute(xmlReader, "cx")).floatValue()
-        let centerY = String(xmlTextReaderGetAttribute(xmlReader, "cy")).floatValue()
-        let radius = String(xmlTextReaderGetAttribute(xmlReader, "r")).floatValue()
+    class func parsedCircleElement(attributes: [String: String]) -> VectorPath? {
+        guard let centerX = attributes["cx"]?.floatValue(),
+            let centerY = attributes["cy"]?.floatValue(),
+            let radius = attributes["r"]?.floatValue() else {
+                return nil
+        }
         
-        let pathBuilderResult = SVGPathBuilder().addEllipseWithCenter(centerX, centerY: centerY, radiusX: radius, radiusY: radius).closePath()
+        let pathBuilderResult = SVGPathBuilder().addEllipse(centerX: centerX, centerY: centerY, radiusX: radius, radiusY: radius).closePath()
         
-        return pathFromPathBuilderResult(pathBuilderResult, xmlReader: xmlReader)
+        return pathFromPathBuilderResult(pathBuilderResult)
     }
     
     // Ellipse
-    class func parsedEllipseElementWithXMLReader(xmlReader : xmlTextReaderPtr) -> VectorPath? {
-        let centerX = String(xmlTextReaderGetAttribute(xmlReader, "cx")).floatValue()
-        let centerY = String(xmlTextReaderGetAttribute(xmlReader, "cy")).floatValue()
-        let radiusX = String(xmlTextReaderGetAttribute(xmlReader, "rx")).floatValue()
-        let radiusY = String(xmlTextReaderGetAttribute(xmlReader, "ry")).floatValue()
+    class func parsedEllipseElement(attributes: [String: String]) -> VectorPath? {
+        guard let centerX = attributes["cx"]?.floatValue(),
+        let centerY = attributes["cy"]?.floatValue(),
+        let radiusX = attributes["rx"]?.floatValue(),
+            let radiusY = attributes["ry"]?.floatValue() else {
+                return nil
+        }
         
-        let pathBuilderResult = SVGPathBuilder().addEllipseWithCenter(centerX, centerY: centerY, radiusX: radiusX, radiusY: radiusY).closePath()
+        let pathBuilderResult = SVGPathBuilder().addEllipse(centerX: centerX, centerY: centerY, radiusX: radiusX, radiusY: radiusY).closePath()
         
-        return pathFromPathBuilderResult(pathBuilderResult, xmlReader: xmlReader)
+        return pathFromPathBuilderResult(pathBuilderResult)
     }
     
     // Rect
-    class func parsedRectElementWithXMLReader(xmlReader : xmlTextReaderPtr) -> VectorPath? {
-        let x = String(xmlTextReaderGetAttribute(xmlReader, "x"))
-        let y = String(xmlTextReaderGetAttribute(xmlReader, "y"))
-        let width = String(xmlTextReaderGetAttribute(xmlReader, "width"))
-        let height = String(xmlTextReaderGetAttribute(xmlReader, "height"))
-        let pathData = PathCommand.Move.rawValue.uppercaseString + x + "," + y +
+    class func parsedRectElement(attributes: [String: String]) -> VectorPath? {
+        guard let x = attributes["x"],
+            let y = attributes["y"],
+            let width = attributes["width"],
+            let height = attributes["height"] else {
+                return nil
+        }
+        
+        let pathData = PathCommand.Move.rawValue.uppercased() + x + "," + y +
             PathCommand.HLineTo.rawValue + (x + width) +
             PathCommand.VLineTo.rawValue + (y + height) +
             PathCommand.HLineTo.rawValue + x +
             PathCommand.VLineTo.rawValue + y +
             PathCommand.Close.rawValue
         
-        return pathFromPathData(pathData, xmlReader: xmlReader)
+        return pathFromPathData(pathData)
     }
     
     // Polygon
-    class func parsedPolygonElementWithXMLReader(xmlReader : xmlTextReaderPtr) -> VectorPath? {
-        let points = String(xmlTextReaderGetAttribute(xmlReader, "points"))
-        let pathData = PathCommand.Move.rawValue.uppercaseString + points + PathCommand.Close.rawValue
+    class func parsedPolygonElement(attributes: [String: String]) -> VectorPath? {
+        guard let points = attributes["points"] else {
+            return nil
+        }
         
-        return pathFromPathData(pathData, xmlReader: xmlReader)
+        let pathData = PathCommand.Move.rawValue.uppercased() + points + PathCommand.Close.rawValue
+        
+        return pathFromPathData(pathData)
     }
     
-    // Attributes
-    class func parsedElementAttributesWithXMLReader(xmlReader: xmlTextReaderPtr) -> [String:String] {
-        //TODO: Attributes
-        return [String:String]()
-    }
+    //MARK: - Private methods
     
-    //MARK: Private methods
-    
-    private class func pathFromPathData(pathData: String, xmlReader: xmlTextReaderPtr) -> VectorPath? {
+    private class func pathFromPathData(_ pathData: String) -> VectorPath? {
         if let pathBuilderResult = builtPathFromPathData(pathData) {
-            return pathFromPathBuilderResult(pathBuilderResult, xmlReader: xmlReader)
+            return pathFromPathBuilderResult(pathBuilderResult)
         } else {
             return nil
         }
     }
     
-    private class func pathFromPathBuilderResult(pathBuilderResult: (CGPathRef, VectorPathInfo), xmlReader: xmlTextReaderPtr) -> VectorPath {
-        let attributes = parsedElementAttributesWithXMLReader(xmlReader)
-        let vectorPath = VectorPath(path: pathBuilderResult.0, pathInfo: pathBuilderResult.1, attributes: attributes)
+    private class func pathFromPathBuilderResult(_ pathBuilderResult: (CGPath, VectorPathInfo)) -> VectorPath {
+        let vectorPath = VectorPath(path: pathBuilderResult.0, pathInfo: pathBuilderResult.1, attributes: [String: String]())
         
         return vectorPath
     }
     
-    private class func builtPathFromPathData(pathData: String) -> (CGPathRef, VectorPathInfo)? {
+    private class func builtPathFromPathData(_ pathData: String) -> (CGPath, VectorPathInfo)? {
         let scanner = pathScannerWithPathData(pathData)
         var scannedCommand : NSString?
         let pathBuilder = SVGPathBuilder()
-        var builtPath : (CGPathRef, VectorPathInfo)? = nil
+        var builtPath : (CGPath, VectorPathInfo)? = nil
         
-        while scanner.scanCharactersFromSet(kPathCommands, intoString: &scannedCommand) {
+        let scanSet = CharacterSet(charactersIn: PathCommand.pathCommands)
+        while scanner.scanCharacters(from: scanSet, into: &scannedCommand) {
             if let scannedCommand = scannedCommand {
                 if scannedCommand.length == 1 {
                     let scannedValues = scannedValuesForScanner(scanner)
-                    let isRelative = scannedCommand.lowercaseString == scannedCommand
-                    if let scannedCommandEnum = PathCommand(rawValue: String(scannedCommand)) {
+                    let isRelative = scannedCommand.lowercased == scannedCommand as String
+                    if let scannedCommandEnum = PathCommand(rawValue: String(scannedCommand.lowercased)) {
                         switch scannedCommandEnum {
                         case .Move:
-                            pathBuilder.moveToPointWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.moveToPoint(values: scannedValues, relative: isRelative)
                         case .LineTo:
-                            pathBuilder.addLineToPointWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addLineToPoint(values: scannedValues, relative: isRelative)
                         case .HLineTo:
-                            pathBuilder.addHorizontaLineWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addHorizontaLine(values: scannedValues, relative: isRelative)
                         case .VLineTo:
-                            pathBuilder.addVerticalLineWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addVerticalLine(values: scannedValues, relative: isRelative)
                         case .CubicBezierCurve:
-                            pathBuilder.addCubicCurveWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addCubicCurve(values: scannedValues, relative: isRelative)
                         case .CubicBezierSmoothCurve:
-                            pathBuilder.addCubicSmoothCurveWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addCubicSmoothCurve(values: scannedValues, relative: isRelative)
                         case .QuadraticBezierCurve:
-                            pathBuilder.addQuadraticCurveWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addQuadraticCurve(values: scannedValues, relative: isRelative)
                         case .QuadraticBezierSmoothCurve:
-                            pathBuilder.addQuadraticSmoothCurveWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addQuadraticSmoothCurve(values: scannedValues, relative: isRelative)
                         case .EllipticalArc:
-                            pathBuilder.addEllipticalArcWithValues(scannedValues, relative: isRelative)
+                            pathBuilder.addEllipticalArc(values: scannedValues, relative: isRelative)
                         case .Close:
                             builtPath = pathBuilder.closePath()
                         }
@@ -157,32 +168,23 @@ class SVGElementParser {
         return builtPath
     }
     
-    private class func scannedValuesForScanner(scanner: NSScanner) -> [Float] {
-        var value: Float = 0
-        var values = [Float]()
-        while scanner.scanFloat(&value) {
+    // MARK: - Private methods: Scanner
+    
+    private class func scannedValuesForScanner(_ scanner: Scanner) -> [Double] {
+        var value: Double = 0
+        var values = [Double]()
+        while scanner.scanDouble(&value) {
             values.append(value)
         }
         
         return values
     }
     
-    private class func pathScannerWithPathData(pathData: String) -> NSScanner {
-        let scanner = NSScanner(string: pathData)
-        let baseCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-        let skipCharacterSet = pathScannerSkipCharacterSet()
-        skipCharacterSet.formUnionWithCharacterSet(baseCharacterSet)
-        scanner.charactersToBeSkipped = skipCharacterSet
+    private class func pathScannerWithPathData(_ pathData: String) -> Scanner {
+        let scanner = Scanner(string: pathData)
+        let baseCharacterSet = CharacterSet.whitespacesAndNewlines.union(CharacterSet(charactersIn: ","))
+        scanner.charactersToBeSkipped = baseCharacterSet
         
         return scanner
-    }
-    
-    private class func pathScannerSkipCharacterSet() -> NSMutableCharacterSet {
-        var characters = ""
-        for character in PathCommand.allValues {
-            characters += (character.rawValue + character.rawValue.uppercaseString)
-        }
-        
-        return NSMutableCharacterSet(charactersInString: characters)
     }
 }

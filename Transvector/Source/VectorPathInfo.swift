@@ -8,16 +8,9 @@
 
 import Foundation
 
-class VectorPathInfo {
+struct VectorPathInfo {
     var firstPoint: CGPoint
     var lastPoint: CGPoint
     var outDirection: Float
     var inDirection: Float
-    
-    init (firstPoint: CGPoint, lastPoint: CGPoint, outDirection: Float, inDirection: Float) {
-        self.firstPoint = firstPoint
-        self.lastPoint = lastPoint
-        self.outDirection = outDirection
-        self.inDirection = inDirection
-    }
 }
