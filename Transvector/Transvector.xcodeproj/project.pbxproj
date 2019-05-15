@@ -11,7 +11,6 @@
 		0A67BB7C1CB3F50C005AE2A0 /* TransvectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BB7B1CB3F50C005AE2A0 /* TransvectorTests.swift */; };
 		0A67BB8C1CB44CF9005AE2A0 /* SVGParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BB8B1CB44CF9005AE2A0 /* SVGParser.swift */; };
 		0A67BB8E1CB44D6C005AE2A0 /* VectorGraphic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BB8D1CB44D6C005AE2A0 /* VectorGraphic.swift */; };
-		0A67BB901CB44F07005AE2A0 /* TransvectorRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BB8F1CB44F07005AE2A0 /* TransvectorRenderer.swift */; };
 		0A6802041CB582350071281D /* VectorPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6802031CB582350071281D /* VectorPath.swift */; };
 		0A6802061CB59F830071281D /* SVGElementParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6802051CB59F830071281D /* SVGElementParser.swift */; };
 		0A6C3A441CB6AB60001D9150 /* SVGPathBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C3A431CB6AB60001D9150 /* SVGPathBuilder.swift */; };
@@ -39,7 +38,6 @@
 		0A67BB7D1CB3F50C005AE2A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A67BB8B1CB44CF9005AE2A0 /* SVGParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGParser.swift; sourceTree = "<group>"; };
 		0A67BB8D1CB44D6C005AE2A0 /* VectorGraphic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorGraphic.swift; sourceTree = "<group>"; };
-		0A67BB8F1CB44F07005AE2A0 /* TransvectorRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransvectorRenderer.swift; sourceTree = "<group>"; };
 		0A6802031CB582350071281D /* VectorPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorPath.swift; sourceTree = "<group>"; };
 		0A6802051CB59F830071281D /* SVGElementParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGElementParser.swift; sourceTree = "<group>"; };
 		0A6C3A431CB6AB60001D9150 /* SVGPathBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGPathBuilder.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				0A6C3A471CB6F6DB001D9150 /* Extensions */,
 				0A6802081CB5A4270071281D /* Model */,
 				0A6802071CB5A41B0071281D /* Parser */,
-				0A67BB8F1CB44F07005AE2A0 /* TransvectorRenderer.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -275,7 +272,6 @@
 				0A6802061CB59F830071281D /* SVGElementParser.swift in Sources */,
 				0A6802041CB582350071281D /* VectorPath.swift in Sources */,
 				0A6C3A491CB6F712001D9150 /* StringValueConversion.swift in Sources */,
-				0A67BB901CB44F07005AE2A0 /* TransvectorRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
